@@ -129,6 +129,7 @@
 			$.each(tabs, function(index, value) {
 
 				$.each($('#' + index + 'Content').find('.tab-pane'), function(i, v) {
+					if ($(v).parents('.tab-content:first').attr('id') !== index+'Content') return;
 					if ($(v).data('node')) {
 						var attribs = $(v).data('node').split('['),
 						    classLink = (attribs[0] != '') ? 'class="nav-link ' + attribs[0] + '"' : 'class="nav-link"';
