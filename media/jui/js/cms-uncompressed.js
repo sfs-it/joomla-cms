@@ -88,7 +88,11 @@ Joomla = window.Joomla || {};
 					// Convert to array to allow multiple values in the field (e.g. type=list multiple)
 					// and normalize as string
 					if (!(typeof itemval === 'object')) {
-						itemval = JSON.parse('["' + itemval + '"]');
+						if ($field.prop("tagName").toLowerCase() == "textarea") {
+							itemval = [ itemval ];
+						} else {
+							itemval = JSON.parse('["' + itemval + '"]');
+						}
 					}
 
 					// for (var i in itemval) loops over non-enumerable properties and prototypes which means that != will ALWAYS match
