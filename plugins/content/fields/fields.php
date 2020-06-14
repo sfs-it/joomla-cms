@@ -94,7 +94,7 @@ class PlgContentFields extends JPlugin
 
 		$parts = FieldsHelper::extract($context);
 
-		if (count($parts) < 2)
+		if (empty($parts) || count($parts) < 2)
 		{
 			return $string;
 		}
